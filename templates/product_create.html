@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid p-3">
+<h5>Add New Product</h5>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Name:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Description:</label><br>
+    <textarea name="description"></textarea><br><br>
+
+    <label>Price:</label><br>
+    <input type="number" name="price" step="0.01" required><br><br>
+
+    <label>Quantity:</label><br>
+    <input type="number" name="quantity" required><br><br>
+
+    <label>Category:</label><br>
+    <select name="category">
+        <option value="ELEC">Electronics</option>
+        <option value="CLOTH">Clothing</option>
+        <option value="FOOD">Food</option>
+        <option value="BOOK">Books</option>
+        <option value="OTHR">Other</option>
+    </select><br><br>
+
+    <label>Available:</label>
+    <input type="checkbox" name="is_available"><br><br>
+
+    <label>Image:</label><br>
+    <input type="file" name="image"><br><br>
+
+    <button type="submit" class="btn btn-success btn-sm">Add Product</button>
+</form>
+</div>
+{% endblock %}
